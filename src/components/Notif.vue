@@ -1,14 +1,17 @@
 <template>
-  <div class="notification">{{ message }}</div>
+  <div
+    class="notification"
+    :class="$store.state.status === 'success' ? 'success' : 'error'"
+  >
+    {{ $store.state.message }}
+  </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 
 @Component
-export default class Notif extends Vue {
-  @Prop() message!: string;
-}
+export default class Notif extends Vue {}
 </script>
 
 <style scoped lang="scss">
@@ -19,11 +22,16 @@ export default class Notif extends Vue {
   max-width: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
-  background-color: var(--secondary);
   color: white;
   z-index: 10;
   padding: 16px 32px;
   animation: fade 1s forwards ease-out;
+  &.error {
+    background-color: var(--secondary);
+  }
+  &.success {
+    background-color: var(--primary1);
+  }
 }
 
 @keyframes fade {

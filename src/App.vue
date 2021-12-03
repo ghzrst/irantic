@@ -18,6 +18,10 @@
     </div>
     <!-- Pages -->
     <router-view></router-view>
+    <div class="boost">
+      <span class="title">Boost Your Links Today</span>
+      <BoostBtn />
+    </div>
     <!-- Footer -->
     <footer class="footer">
       <img src="./assets/images/white-logo.svg" class="logo" />
@@ -47,8 +51,10 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
+import BoostBtn from "./components/BoostBtn.vue";
+
 @Component({
-  components: {},
+  components: { BoostBtn },
 })
 export default class App extends Vue {
   private navItems = [
@@ -140,6 +146,22 @@ export default class App extends Vue {
       &:hover {
         opacity: 0.8;
       }
+    }
+  }
+  .boost {
+    background-color: var(--primary2);
+    background-image: url("./assets/images/bg-boost-desktop.svg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 64px;
+    .title {
+      font-weight: 800;
+      color: white;
+      font-size: 32px;
+      margin-bottom: 16px;
     }
   }
   .footer {

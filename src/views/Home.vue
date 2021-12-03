@@ -36,11 +36,8 @@
         </div>
       </div>
     </div>
-    <div class="boost">
-      <span class="title">Boost Your Links Today</span>
-      <BoostBtn />
-    </div>
-    <Notif :message="message" v-if="hasMessage" />
+
+    <Notif v-if="$store.state.hasNotif" />
   </div>
 </template>
 
@@ -49,6 +46,7 @@ import { Component, Vue } from "vue-property-decorator";
 import axios from "axios";
 
 import { delay } from "../helpers/functionality";
+import notification from "../mixins/notifMixin";
 
 import BoostBtn from "../components/BoostBtn.vue";
 import Card from "../components/Card.vue";
@@ -57,9 +55,12 @@ import router from "@/router";
 
 @Component({
   components: { BoostBtn, Card, Notif },
+  mixins: [notification],
 })
 export default class Home extends Vue {
-  private link: string = "example.org/very/long/link.html/";
+  // eslint-disable-next-line no-undef
+  [x: string]: any;
+  private link: string = "mple.org/ve";
   private cards = [
     {
       title: "Brand Recognition",
@@ -82,8 +83,6 @@ export default class Home extends Vue {
   ];
 
   private loading: boolean = false;
-  private hasMessage: boolean = false;
-  private message: any = "";
 
   private async shorten() {
     this.loading = true;
@@ -96,10 +95,10 @@ export default class Home extends Vue {
         });
       })
       .catch(async (error) => {
-        this.message = error.response.data.error;
-        this.hasMessage = true;
-        await delay(5000);
-        this.hasMessage = false;
+        this.notification({
+          status: "error",
+          message: error.response.data.error,
+        });
       })
       .finally(async () => {
         await delay(1000);
@@ -209,22 +208,6 @@ export default class Home extends Vue {
         top: 50%;
         z-index: 0;
       }
-    }
-  }
-  .boost {
-    background-color: var(--primary2);
-    background-image: url("../assets/images/bg-boost-desktop.svg");
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 64px;
-    .title {
-      font-weight: 800;
-      color: white;
-      font-size: 32px;
-      margin-bottom: 16px;
     }
   }
 }

@@ -17,3 +17,9 @@ body {
 .font-bold {
     font-weight: 800;
 }
+.input:focus {
+    outline: none;
+}
+input:focus {
+    outline: none;
+}
