@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- Navbar -->
     <div class="navbar">
       <img src="./assets/images/logo.svg" />
       <div class="nav-items">
@@ -15,8 +16,9 @@
       <span class="login-btn font-bold">Login</span>
       <span class="sign-up-btn font-bold">Sign Up</span>
     </div>
-
+    <!-- Pages -->
     <router-view></router-view>
+    <!-- Footer -->
     <footer class="footer">
       <img src="./assets/images/white-logo.svg" class="logo" />
       <div v-for="(item, i) in footerItems" :key="'cat' + i">
@@ -44,12 +46,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
 
 @Component({
-  components: {
-    HelloWorld,
-  },
+  components: {},
 })
 export default class App extends Vue {
   private navItems = [
@@ -88,7 +87,7 @@ export default class App extends Vue {
 }
 </script>
 
-<style lang="scss">
+ <style lang="scss">
 #app {
   position: relative;
   background: white;
@@ -97,6 +96,7 @@ export default class App extends Vue {
   .navbar {
     position: sticky;
     top: 0;
+    z-index: 10;
     background: white;
     padding: 32px;
     display: flex;
@@ -107,7 +107,7 @@ export default class App extends Vue {
       flex-grow: 1;
       display: flex;
       flex-direction: row;
-      justify-content: start;
+      justify-content: flex-start;
       align-items: center;
       .nav-item {
         margin: auto 16px;
@@ -125,6 +125,9 @@ export default class App extends Vue {
       cursor: pointer;
       font-size: 12px;
       margin: auto 16px;
+      &:hover {
+        opacity: 0.8;
+      }
     }
     .sign-up-btn {
       background-color: var(--primary1);
@@ -134,6 +137,9 @@ export default class App extends Vue {
       color: white;
       font-size: 12px;
       cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
   .footer {
@@ -144,7 +150,7 @@ export default class App extends Vue {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: start;
+    align-items: flex-start;
     .logo {
       margin-right: 64px;
     }
@@ -154,8 +160,8 @@ export default class App extends Vue {
     .sub-categories {
       display: flex;
       flex-direction: column;
-      justify-content: start;
-      align-items: start;
+      justify-content: flex-start;
+      align-items: flex-start;
       margin-top: 24px;
 
       .sub-category {
@@ -165,8 +171,8 @@ export default class App extends Vue {
     .icons {
       display: flex;
       flex-direction: row;
-      justify-content: start;
-      align-items: start;
+      justify-content: flex-start;
+      align-items: flex-start;
       .icon {
         margin-right: 16px;
       }
