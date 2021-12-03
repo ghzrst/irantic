@@ -18,7 +18,9 @@
           placeholder="Shorten a link here.."
           v-model="link"
         />
-        <button class="link-btn" @click="shorten">Shorten It!</button>
+        <button class="link-btn" @click="shorten">
+          <Loading v-if="loading" /> <span v-else>Shorten It!</span>
+        </button>
       </div>
       <div class="details">
         <h2 class="title">Advanced Statistics</h2>
@@ -51,16 +53,17 @@ import notification from "../mixins/notifMixin";
 import BoostBtn from "../components/BoostBtn.vue";
 import Card from "../components/Card.vue";
 import Notif from "../components/Notif.vue";
+import Loading from "../components/Loading.vue";
 import router from "@/router";
 
 @Component({
-  components: { BoostBtn, Card, Notif },
+  components: { BoostBtn, Card, Notif, Loading },
   mixins: [notification],
 })
 export default class Home extends Vue {
   // eslint-disable-next-line no-undef
   [x: string]: any;
-  private link: string = "mple.org/ve";
+  private link: string = "";
   private cards = [
     {
       title: "Brand Recognition",
@@ -124,7 +127,7 @@ export default class Home extends Vue {
       align-items: flex-start;
       .title {
         color: var(--neutral4);
-        font-size: 64px;
+        font-size: 4.44vmax;
         margin: 0;
       }
       .description {
@@ -166,7 +169,7 @@ export default class Home extends Vue {
         color: white;
         background-color: var(--primary1);
         padding: 14px 32px;
-        font-size: 14px;
+        font-size: 0.97vmax;
         cursor: pointer;
         border: none;
         &:hover {

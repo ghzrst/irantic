@@ -2,7 +2,11 @@
   <div id="app">
     <!-- Navbar -->
     <div class="navbar">
-      <img src="./assets/images/logo.svg" />
+      <img
+        src="./assets/images/logo.svg"
+        @click="goToHome"
+        style="cursor: pointer"
+      />
       <div class="nav-items">
         <a
           v-for="(item, index) in navItems"
@@ -24,7 +28,11 @@
     </div>
     <!-- Footer -->
     <footer class="footer">
-      <img src="./assets/images/white-logo.svg" class="logo" />
+      <img
+        src="./assets/images/white-logo.svg"
+        class="logo"
+        @click="goToHome"
+      />
       <div v-for="(item, i) in footerItems" :key="'cat' + i">
         <span class="category">{{ item.category }}</span>
         <div class="sub-categories">
@@ -90,6 +98,10 @@ export default class App extends Vue {
     { icon: require("./assets/images/icon-pinterest.svg") },
     { icon: require("./assets/images/icon-instagram.svg") },
   ];
+
+  private goToHome() {
+    this.$router.push({ name: "Home" });
+  }
 }
 </script>
 
@@ -119,7 +131,7 @@ export default class App extends Vue {
         margin: auto 16px;
         text-decoration: none;
         color: var(--neutral2);
-        font-size: 12px;
+        font-size: 0.83vmax;
       }
     }
     .login-btn {
@@ -129,7 +141,7 @@ export default class App extends Vue {
       padding: 8px 16px;
       color: var(--neutral2);
       cursor: pointer;
-      font-size: 12px;
+      font-size: 0.83vmax;
       margin: auto 16px;
       &:hover {
         opacity: 0.8;
@@ -141,7 +153,7 @@ export default class App extends Vue {
       border-radius: 20px;
       padding: 8px 16px;
       color: white;
-      font-size: 12px;
+      font-size: 0.83vmax;
       cursor: pointer;
       &:hover {
         opacity: 0.8;
@@ -160,7 +172,7 @@ export default class App extends Vue {
     .title {
       font-weight: 800;
       color: white;
-      font-size: 32px;
+      font-size: 2.22vmax;
       margin-bottom: 16px;
     }
   }
@@ -168,13 +180,14 @@ export default class App extends Vue {
     padding: 64px;
     background-color: var(--neutral3);
     color: white;
-    font-size: 12px;
+    font-size: 0.83vmax;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
     .logo {
       margin-right: 64px;
+      cursor: pointer;
     }
     .category {
       font-weight: 800;
@@ -197,6 +210,7 @@ export default class App extends Vue {
       align-items: flex-start;
       .icon {
         margin-right: 16px;
+        cursor: pointer;
       }
     }
   }

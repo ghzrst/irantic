@@ -51,7 +51,7 @@ export default class Card extends Vue {
   }
   .title {
     font-weight: 800;
-    font-size: 20px !important;
+    font-size: 1.38vmax !important;
     color: var(--neutral4);
     margin-bottom: 16px !important;
     margin-top: 32px !important;
@@ -59,7 +59,7 @@ export default class Card extends Vue {
   .desc {
     color: var(--neutral2);
     text-align: start;
-    font-size: 14px;
+    font-size: 0.97vmax;
     line-height: 22px;
   }
 }

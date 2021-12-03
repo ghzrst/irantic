@@ -17,8 +17,7 @@ export default new Vuex.Store({
         },
         showNotif(state, status) {
             state.hasNotif = status
-            console.log(state.hasNotif);
-            
+
         },
     },
     getters: {

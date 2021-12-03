@@ -16,7 +16,7 @@ export default class BoostBtn extends Vue {}
   border-radius: 32px;
   padding: 14px 32px;
   color: white;
-  font-size: 14px;
+  font-size: 0.97vmax;
   cursor: pointer;
   &:hover {
     opacity: 0.8;

@@ -12,7 +12,6 @@
       <button class="copy-btn" @click="copy">
         <Loading v-if="loading" />
         <span v-else>Copy</span>
-        {{ $store.hasNotif }}
       </button>
     </div>
     <Notif v-if="$store.state.hasNotif" />
@@ -41,6 +40,9 @@ export default class Home extends Vue {
   private shortLink: string = "";
 
   private mounted() {
+    //@ts-ignore
+    document.getElementById("app").scrollIntoView();
+
     this.getLink();
   }
 
@@ -130,7 +132,7 @@ export default class Home extends Vue {
     }
     .short-link {
       color: var(--primary1);
-      font-size: 12px;
+      font-size: 0.83vmax;
       margin: auto 8px;
     }
     .copy-btn {
@@ -138,7 +140,7 @@ export default class Home extends Vue {
       color: white;
       background-color: var(--primary1);
       padding: 12px 24px;
-      font-size: 14px;
+      font-size: 0.97vmax;
       cursor: pointer;
       border: none;
       &:hover {

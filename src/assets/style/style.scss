@@ -7,10 +7,24 @@
     --neutral3: hsl(255, 11%, 22%);
     --neutral4: hsl(260, 8%, 14%);
 }
+
+@font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 800;
+    src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+}
 body {
     padding: 0;
     margin: 0;
-    font-size: 18px;
+    font-size: 1.25vmax;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
 }
